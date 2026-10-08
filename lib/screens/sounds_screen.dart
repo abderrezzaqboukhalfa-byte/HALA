@@ -13,12 +13,12 @@ class _SoundsScreenState extends State<SoundsScreen> {
   final AudioPlayer _player = AudioPlayer();
 
   static const _sounds = [
-    (emoji: '🥁', name: 'Drum',   asset: 'assets/sounds/drum.mp3',    bg: 0xFFFFD6E0),
-    (emoji: '🎸', name: 'Guitar', asset: 'assets/sounds/guitar.mp3',  bg: 0xFFFFECC8),
-    (emoji: '🎹', name: 'Piano',  asset: 'assets/sounds/piano.mp3',   bg: 0xFFD6EFD8),
-    (emoji: '🎺', name: 'Trumpet',asset: 'assets/sounds/trumpet.mp3', bg: 0xFFDDE0FF),
-    (emoji: '🔔', name: 'Bell',   asset: 'assets/sounds/bell.mp3',    bg: 0xFFD0F0FD),
-    (emoji: '🎵', name: 'Song',   asset: 'assets/sounds/song.mp3',    bg: 0xFFE8D5F5),
+    (emoji: '🥁', name: 'Drum',   asset: 'sounds/drum.mp3',    bg: 0xFFFFD6E0),
+    (emoji: '🎸', name: 'Guitar', asset: 'sounds/guitar.mp3',  bg: 0xFFFFECC8),
+    (emoji: '🎹', name: 'Piano',  asset: 'sounds/piano.mp3',   bg: 0xFFD6EFD8),
+    (emoji: '🎺', name: 'Trumpet',asset: 'sounds/trumpet.mp3', bg: 0xFFDDE0FF),
+    (emoji: '🔔', name: 'Bell',   asset: 'sounds/bell.mp3',    bg: 0xFFD0F0FD),
+    (emoji: '🎵', name: 'Song',   asset: 'sounds/song.mp3',    bg: 0xFFE8D5F5),
   ];
 
   @override
@@ -30,9 +30,12 @@ class _SoundsScreenState extends State<SoundsScreen> {
   Future<void> _play(String asset) async {
     try {
       await _player.stop();
-      await _player.play(AssetSource(asset.replaceFirst('assets/', '')));
-    } catch (_) {
-      // Sound file not yet available — silently skip.
+      await _player.play(AssetSource(asset));
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Sound error: $e')),
+      );
     }
   }
 

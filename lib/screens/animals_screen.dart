@@ -24,9 +24,12 @@ class _AnimalsScreenState extends State<AnimalsScreen> {
     if (animal.soundAsset == null) return;
     try {
       await _player.stop();
-      await _player.play(AssetSource(animal.soundAsset!.replaceFirst('assets/', '')));
-    } catch (_) {
-      // Sound file not yet available — silently skip.
+      await _player.play(AssetSource(animal.soundAsset!));
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Sound error: $e')),
+      );
     }
   }
 

@@ -17,7 +17,7 @@ class _SoundsScreenState extends State<SoundsScreen> {
     (emoji: '🎸', name: 'Guitar', asset: 'sounds/guitar.mp3',  bg: 0xFFFFECC8),
     (emoji: '🎹', name: 'Piano',  asset: 'sounds/piano.mp3',   bg: 0xFFD6EFD8),
     (emoji: '🎺', name: 'Trumpet',asset: 'sounds/trumpet.mp3', bg: 0xFFDDE0FF),
-    (emoji: '🔔', name: 'Bell',   asset: 'sounds/bell.mp3',    bg: 0xFFD0F0FD),
+    (emoji: '🔔', name: 'Bell',   asset: 'sounds/bell.wav',    bg: 0xFFD0F0FD),
     (emoji: '🎵', name: 'Song',   asset: 'sounds/song.mp3',    bg: 0xFFE8D5F5),
   ];
 

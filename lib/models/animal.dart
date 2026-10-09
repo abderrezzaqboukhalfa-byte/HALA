@@ -16,7 +16,7 @@ class Animal {
   /// Background card color.
   final int color;
 
-  /// Optional path to a local sound asset, e.g. 'sounds/cat.mp3'.
+  /// Optional path to a local sound asset, e.g. 'sounds/cat.wav'.
   final String? soundAsset;
 }
 
@@ -26,21 +26,25 @@ const List<Animal> kAnimals = [
     name: 'Cat',
     emoji: '🐱',
     color: 0xFFFFD6E0,
+    soundAsset: 'sounds/cat.wav',
   ),
   Animal(
     name: 'Dog',
     emoji: '🐶',
     color: 0xFFFFECC8,
+    soundAsset: 'sounds/dog.wav',
   ),
   Animal(
     name: 'Cow',
     emoji: '🐮',
     color: 0xFFD6EFD8,
+    soundAsset: 'sounds/cow.wav',
   ),
   Animal(
     name: 'Sheep',
     emoji: '🐑',
     color: 0xFFE8D5F5,
+    soundAsset: 'sounds/sheep.wav',
   ),
   Animal(
     name: 'Duck',
@@ -51,5 +55,6 @@ const List<Animal> kAnimals = [
     name: 'Elephant',
     emoji: '🐘',
     color: 0xFFDDE0FF,
+    soundAsset: 'sounds/Elephant.mp3',
   ),
 ];

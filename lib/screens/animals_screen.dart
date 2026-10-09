@@ -21,10 +21,11 @@ class _AnimalsScreenState extends State<AnimalsScreen> {
   }
 
   Future<void> _playAnimalSound(Animal animal) async {
-    if (animal.soundAsset == null) return;
+    final soundAsset = animal.soundAsset;
+    if (soundAsset == null) return;
     try {
       await _player.stop();
-      await _player.play(AssetSource(animal.soundAsset!));
+      await _player.play(AssetSource(soundAsset));
     } catch (e) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
